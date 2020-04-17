@@ -16,18 +16,26 @@ class NavigationBar extends React.Component <INavigationBarProps, INavigationBar
 
     render() {
         return (
-                <Navbar sticky="top" bg="dark" variant="dark">
-                    <Navbar.Brand href="/about">ETZION</Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/about" >About</Nav.Link>
-                        <Nav.Link href="/services" >Services</Nav.Link>
-                        <Nav.Link href="/projects" >Projects</Nav.Link>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
-                </Navbar>
+            <Navbar sticky="top" bg="dark" variant="dark">
+                <Navbar.Brand href="/about">
+                    {/*TODO: move inline style*/}
+                    <img
+                        src="etzionlogo.png"
+                         height="70"
+                        className="d-inline-block align-top"
+                        />
+                    <span>{' '}ETZION</span>
+                </Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/about" >About</Nav.Link>
+                    <Nav.Link href="/services" >Services</Nav.Link>
+                    <Nav.Link href="/projects" >Projects</Nav.Link>
+                </Nav>
+                <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button variant="outline-info">Search</Button>
+                </Form>
+            </Navbar>
         );
     }
 }

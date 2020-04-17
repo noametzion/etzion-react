@@ -11,6 +11,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import InfoFooter from "../info-footer/InfoFooter";
 
 interface IEtzionAppProps {
 }
@@ -44,6 +45,7 @@ class EtzionApp extends React.Component <IEtzionAppProps, IEtzionAppState>{
                       </Route>
                   </Switch>
               </Router>
+              <InfoFooter/>
         </div>
       );
   }

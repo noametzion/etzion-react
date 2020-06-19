@@ -20,11 +20,11 @@ class NavigationBar extends React.Component <INavigationBarProps, INavigationBar
                 <Navbar.Brand href="/about">
                     {/*TODO: move inline style*/}
                     <img
-                        src="etzionlogo.png"
+                        src="/etzionlogo.png"
                          height="70"
                         className="d-inline-block align-top"
                         />
-                    <span>{' '}ETZION</span>
+                    <span>{' '}Etzion Electrical Engineering LTD</span>
                 </Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/about" >About</Nav.Link>

@@ -15,7 +15,7 @@ class InfoFooter extends React.Component <IInfoFooterProps, IInfoFooterState>{
     render() {
         return (
             // TODO: stick to bottom
-            <footer>
+            <footer style={{background: '#645d62'}}>
                 <div>
                     <h3>Contact</h3>
                     {/*TODO: two columns*/}

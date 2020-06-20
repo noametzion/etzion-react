@@ -91,16 +91,16 @@ class Projects extends React.Component <IProjectsProps, IProjectsState>{
         return (
             <div>
                 <Router>
-                    {/*TODO: add default for /services route*/}
+                    {/*TODO: add default for /projects route*/}
                     <Nav defaultActiveKey={'/projects/' + this.state.selectedProjects[0] } className="flex-column">
-                        { this.state.selectedProjects.map(service =>
-                            <Nav.Link href={'/projects/' + service.path} >{service.title}</Nav.Link>
+                        { this.state.selectedProjects.map(project =>
+                            <Nav.Link href={'/projects/' + project.path} >{project.title}</Nav.Link>
                         )}
                     </Nav>
                     <Switch>
-                        { this.state.selectedProjects.map(service =>
-                            <Route path= {'/projects/' + service.path}>
-                                <Info info={service} />
+                        { this.state.selectedProjects.map(project =>
+                            <Route path= {'/projects/' + project.path}>
+                                <Info info={project} />
                             </Route>
                         )}
                     </Switch>

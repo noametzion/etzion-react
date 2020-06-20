@@ -2,9 +2,7 @@ import React from 'react';
 import InfoProp from "../info/InfoProp";
 import Info from "../info/Info";
 import {Nav} from "react-bootstrap";
-import NavigationBar from "../navigation-bar/NavigationBar";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import AboutEtzion from "../about-etzion/AboutEtzion";
 
 interface IServicesProps {
 }
@@ -55,7 +53,7 @@ class Services extends React.Component <IServicesProps, IServicesState>{
                     ]
                 ) , new InfoProp(
                     "Design and manufacture of low voltage electrical switchboards",
-                    "switchboards",
+                    "Switchboards",
                     [
                         "Design of distribution and control switchboards.",
                         "Manufacture of electrical switchboards up to 3200 amps.",
@@ -66,7 +64,7 @@ class Services extends React.Component <IServicesProps, IServicesState>{
                     ]
                 ), new InfoProp(
                     "Generator sets, fuel tanks end electromechanical installations",
-                    "generators",
+                    "Generators",
                     [
                         "Installation of generator sets including electrical and electromechanical systems exhaust piping and silence systems.",
                         "Supply and installation of weekly and daily fuel tanks for diesel generators.",
@@ -95,7 +93,6 @@ class Services extends React.Component <IServicesProps, IServicesState>{
             <div>
                 <Router>
                     {/*TODO: add default for /services route*/}
-                    {/*TODO: fix logo disappear*/}
                     <Nav defaultActiveKey={'/services/' + this.state.companyServices[0] } className="flex-column">
                         { this.state.companyServices.map(service =>
                             <Nav.Link href={'/services/' + service.path} >{service.title}</Nav.Link>

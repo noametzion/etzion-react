@@ -94,7 +94,6 @@ class AboutEtzion extends React.Component <IAboutEtzionProps, IAboutEtzionState>
             <div>
                 <Router>
                     {/*TODO: add default for /services route*/}
-                    {/*TODO: fix logo disappear*/}
                     <Nav defaultActiveKey={'/about/' + this.state.abouts[0] } className="flex-column">
                         { this.state.abouts.map(about =>
                             <Nav.Link href={'/about/' + about.path} >{about.title}</Nav.Link>

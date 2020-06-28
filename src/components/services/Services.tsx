@@ -1,8 +1,7 @@
 import React from 'react';
 import InfoProp from "../info/InfoProp";
-import Info from "../info/Info";
-import {Nav} from "react-bootstrap";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import WithSideBar from "../with-side-bar/WithSideBar";
+import ServiceInfoPage from "./ServiceInfoPage";
 
 interface IServicesProps {
 }
@@ -11,6 +10,7 @@ interface IServicesState {
     companyServices: InfoProp[];
 }
 
+const ServiceInfoPageWithSideBar = WithSideBar(ServiceInfoPage);
 
 class Services extends React.Component <IServicesProps, IServicesState>{
     constructor(props : IServicesProps) {
@@ -91,21 +91,7 @@ class Services extends React.Component <IServicesProps, IServicesState>{
     render() {
         return (
             <div>
-                <Router>
-                    {/*TODO: add default for /services route*/}
-                    <Nav defaultActiveKey={'/services/' + this.state.companyServices[0] } className="flex-column">
-                        { this.state.companyServices.map(service =>
-                            <Nav.Link href={'/services/' + service.path} >{service.title}</Nav.Link>
-                        )}
-                    </Nav>
-                    <Switch>
-                        { this.state.companyServices.map(service =>
-                            <Route path= {'/services/' + service.path}>
-                                <Info info={service} />
-                            </Route>
-                        )}
-                    </Switch>
-                </Router>
+                <ServiceInfoPageWithSideBar mainRoute="services" subRoutes={this.state.companyServices}></ServiceInfoPageWithSideBar>
             </div>
         );
     }

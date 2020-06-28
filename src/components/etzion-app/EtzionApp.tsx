@@ -4,12 +4,11 @@ import './App.css';
 import Projects from "../projects/Projects";
 import AboutEtzion from "../about-etzion/AboutEtzion";
 import Services from "../services/Services";
-import {Col, Nav, Navbar, Row, Tab, Tabs} from "react-bootstrap";
+import './App.css';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import InfoFooter from "../info-footer/InfoFooter";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Col, Container, Form, FormControl, Nav, Navbar} from "react-bootstrap";
+import {Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
 
 interface INavigationBarProps {
 }
@@ -16,13 +16,14 @@ class NavigationBar extends React.Component <INavigationBarProps, INavigationBar
 
     render() {
         return (
-            <Navbar sticky="top" bg="dark" variant="dark">
+            <Navbar sticky="top" variant="light">
                 <Navbar.Brand href="/about">
                     {/*TODO: move inline style*/}
                     <img
                         src="/etzionlogo.png"
                          height="70"
                         className="d-inline-block align-top"
+                        alt=""
                         />
                     <span>{' '}Etzion Electrical Engineering LTD</span>
                 </Navbar.Brand>

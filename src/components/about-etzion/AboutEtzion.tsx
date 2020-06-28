@@ -1,8 +1,8 @@
 import React from 'react';
 import InfoProp from "../info/InfoProp";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Nav} from "react-bootstrap";
-import Info from "../info/Info";
+import "../etzion-app/App.css"
+import AboutInfoPage from "./AboutInfoPage";
+import WithSideBar from "../with-side-bar/WithSideBar";
 
 interface IAboutEtzionProps {
 }
@@ -11,11 +11,13 @@ interface IAboutEtzionState {
     abouts: InfoProp[];
 }
 
+const AboutInfoPageWithSideBar = WithSideBar(AboutInfoPage);
 
 class AboutEtzion extends React.Component <IAboutEtzionProps, IAboutEtzionState>{
     constructor(props : IAboutEtzionProps) {
         super(props);
         this.state = {
+            // TODO: data file
             abouts: [
                 // TODO: ask dad about routes(path)
                 new InfoProp(
@@ -92,21 +94,7 @@ class AboutEtzion extends React.Component <IAboutEtzionProps, IAboutEtzionState>
     render() {
         return (
             <div>
-                <Router>
-                    {/*TODO: add default for /services route*/}
-                    <Nav defaultActiveKey={'/about/' + this.state.abouts[0] } className="flex-column">
-                        { this.state.abouts.map(about =>
-                            <Nav.Link href={'/about/' + about.path} >{about.title}</Nav.Link>
-                        )}
-                    </Nav>
-                    <Switch>
-                        { this.state.abouts.map(about =>
-                            <Route path= {'/about/' + about.path}>
-                                <Info info={about} />
-                            </Route>
-                        )}
-                    </Switch>
-                </Router>
+                <AboutInfoPageWithSideBar mainRoute="about" subRoutes={this.state.abouts} ></AboutInfoPageWithSideBar>
             </div>
         );}
 }

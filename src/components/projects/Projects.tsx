@@ -3,6 +3,8 @@ import InfoProp from "../info/InfoProp";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Nav} from "react-bootstrap";
 import Info from "../info/Info";
+import WithSideBar from "../with-side-bar/WithSideBar";
+import ProjectInfoPage from "./ProjectInfoPage";
 
 interface IProjectsProps {
 }
@@ -11,6 +13,7 @@ interface IProjectsState {
     selectedProjects: InfoProp[];
 }
 
+const ProjectInfoPageWithSideBar = WithSideBar(ProjectInfoPage);
 
 class Projects extends React.Component <IProjectsProps, IProjectsState>{
     constructor(props : IProjectsProps) {
@@ -86,25 +89,10 @@ class Projects extends React.Component <IProjectsProps, IProjectsState>{
         };
     }
 
-
     render() {
         return (
             <div>
-                <Router>
-                    {/*TODO: add default for /projects route*/}
-                    <Nav defaultActiveKey={'/projects/' + this.state.selectedProjects[0] } className="flex-column">
-                        { this.state.selectedProjects.map(project =>
-                            <Nav.Link href={'/projects/' + project.path} >{project.title}</Nav.Link>
-                        )}
-                    </Nav>
-                    <Switch>
-                        { this.state.selectedProjects.map(project =>
-                            <Route path= {'/projects/' + project.path}>
-                                <Info info={project} />
-                            </Route>
-                        )}
-                    </Switch>
-                </Router>
+                <ProjectInfoPageWithSideBar mainRoute="projects" subRoutes={this.state.selectedProjects} ></ProjectInfoPageWithSideBar>
             </div>
         );
     }
